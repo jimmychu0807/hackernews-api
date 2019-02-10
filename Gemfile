@@ -8,7 +8,7 @@ end
 gem 'bcrypt'
 gem 'puma', '~> 3.7'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 gem 'sqlite3'
 gem 'validate_url'
 
@@ -20,7 +20,6 @@ gem 'search_object_graphql'
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'factory_bot_rails'
-  gem 'graphiql-rails', '1.5.0'
   gem 'rubocop'
 end
 
