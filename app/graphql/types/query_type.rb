@@ -4,6 +4,5 @@ module Types
     def all_users
       ::User.all
     end
-
   end
 end
