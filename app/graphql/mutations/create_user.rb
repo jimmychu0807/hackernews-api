@@ -7,16 +7,12 @@ class Mutations::CreateUser < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(name:, email:, password:)
-    user = User.create!(name: name, email: email, password: password)
-    return {
-      user: user,
-      errors: nil
-    }
-  rescue ActiveRecord::ActiveRecordError => err
-    errors = err.message.split(',').map{ |err| err.strip }
-    return {
-      user: nil,
-      errors: errors
-    }
+    basic_ar_rescue do
+      user = User.create!(name: name, email: email, password: password)
+      return {
+        user: user,
+        errors: nil
+      }
+    end
   end
 end
