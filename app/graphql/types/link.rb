@@ -1,12 +1,26 @@
-class Types::Link < Types::BaseObject
-  description "Link Type"
+module Types
+  module Link
+    class LinkNode < Types::BaseObject
+      implements GraphQL::Relay::Node.interface
+      description "Link Type"
 
-  field :id, ID, null: false
-  field :url, String, null: false
-  field :description, String, null: false
+      global_id_field :id
+      field :url, String, null: false
+      field :description, String, null: false
 
-  field :user, Types::User, null: false
-  field :votes, [Types::Vote], null: false
+      field :user, Types::User::UserNode, null: false
+      field :votes, Types::Vote::VoteConnection, null: false
 
-  field :createdAt,  GraphQL::Types::ISO8601DateTime, null: false
+      field :createdAt,  GraphQL::Types::ISO8601DateTime, null: false
+    end
+
+    class LinkConnection < GraphQL::Types::Relay::BaseConnection
+      edge_type(Types::Link::LinkNode.edge_type)
+
+      field :totalCount, Integer, null: false
+      def total_count
+        object.nodes.size
+      end
+    end
+  end
 end

@@ -17,6 +17,7 @@ gem 'graphql-query-resolver'
 gem 'search_object'
 gem 'search_object_graphql'
 gem 'factory_bot_rails'
+gem 'uuidtools'
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
