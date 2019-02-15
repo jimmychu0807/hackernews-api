@@ -6,9 +6,14 @@ module Types
 
       global_id_field :id
       field :name, String, null: false
-      field :email, String, null: false
+      field :email, String, null: true
+      def email
+        current_user = context[:current_user]
+        return object.email if current_user.id == object.id
+        nil
+      end
 
-      field :createdAt,  GraphQL::Types::ISO8601DateTime, null: false
+      field :createdAt, GraphQL::Types::ISO8601DateTime, null: false
 
       field :links, Types::Link::LinkConnection, null: false
       field :votes, Types::Vote::VoteConnection, null: false

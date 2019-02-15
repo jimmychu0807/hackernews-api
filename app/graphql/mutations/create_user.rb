@@ -7,7 +7,7 @@ class Mutations::CreateUser < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(name:, email:, password:)
-    basic_ar_rescue do
+    basic_ar_cancan_rescue do
       user = User.create!(name: name, email: email, password: password)
       return {
         user: user,

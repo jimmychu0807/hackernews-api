@@ -4,7 +4,6 @@ class GraphqlController < ApplicationController
     render json: result
   rescue StandardError => e
     raise e unless Rails.env.development?
-
     handle_error_in_development e
   end
 
@@ -25,7 +24,7 @@ class GraphqlController < ApplicationController
   def context
     {
       session: session,
-      current_user: AuthToken.user_from_token(session[:token])
+      current_user: current_user
     }
   end
 

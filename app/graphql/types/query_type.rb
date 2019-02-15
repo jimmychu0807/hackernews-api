@@ -1,6 +1,5 @@
 module Types
   class QueryType < BaseObject
-
     field :node, field: GraphQL::Relay::Node.field
     field :nodes, field: GraphQL::Relay::Node.plural_field
 
