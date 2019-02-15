@@ -13,7 +13,7 @@ module Types
         nil
       end
 
-      field :createdAt, GraphQL::Types::ISO8601DateTime, null: false
+      field :createdAt, Types::DateTimeType, null: false
 
       field :links, Types::Link::LinkConnection, null: false
       field :votes, Types::Vote::VoteConnection, null: false

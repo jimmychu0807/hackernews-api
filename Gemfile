@@ -12,9 +12,8 @@ gem 'rails', '~> 5.2.2'
 gem 'sqlite3'
 gem 'validate_url'
 
-gem 'graphql-pro', ">= 1.7.11"
+gem 'graphql', "~> 1.9.1"
 gem 'cancancan', "~> 2.0"
-gem 'graphql-query-resolver'
 gem 'search_object'
 gem 'search_object_graphql'
 gem 'factory_bot_rails'

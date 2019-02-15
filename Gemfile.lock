@@ -66,11 +66,7 @@ GEM
     ffi (1.10.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    graphql (1.8.13)
-    graphql-pro (1.9.5)
-      graphql (>= 1.7.5)
-    graphql-query-resolver (0.2.0)
-      graphql (~> 1.0, >= 1.0.0)
+    graphql (1.9.1)
     i18n (1.4.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.2)
@@ -192,8 +188,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 2.0)
   factory_bot_rails
-  graphql-pro (>= 1.7.11)
-  graphql-query-resolver
+  graphql (~> 1.9.1)
   listen (>= 3.0.5, < 3.2)
   pry-byebug
   puma (~> 3.7)

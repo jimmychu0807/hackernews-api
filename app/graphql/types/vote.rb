@@ -7,7 +7,7 @@ module Types
       global_id_field :id
       field :link, Types::Link::LinkNode, null: false
       field :user, Types::User::UserNode, null: false
-      field :createdAt,  GraphQL::Types::ISO8601DateTime, null: false
+      field :createdAt,  Types::DateTimeType, null: false
     end
 
     class VoteConnection < GraphQL::Types::Relay::BaseConnection

@@ -11,7 +11,7 @@ module Types
       field :user, Types::User::UserNode, null: false
       field :votes, Types::Vote::VoteConnection, null: false
 
-      field :createdAt,  GraphQL::Types::ISO8601DateTime, null: false
+      field :createdAt,  Types::DateTimeType, null: false
     end
 
     class LinkConnection < GraphQL::Types::Relay::BaseConnection

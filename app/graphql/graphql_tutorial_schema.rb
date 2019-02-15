@@ -1,6 +1,7 @@
 class GraphqlTutorialSchema < GraphQL::Schema
   query Types::QueryType
   mutation Types::MutationType
+  subscription Types::SubscriptionType
 
   default_max_page_size 25
 
