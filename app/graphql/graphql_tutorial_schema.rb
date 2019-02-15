@@ -10,7 +10,8 @@ class GraphqlTutorialSchema < GraphQL::Schema
 
   def self.object_from_id(id, query_ctx)
     type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
-    type_name.send :find, item_id
+    type = type_name.gsub(/Node$/, '')
+    type.constantize.send :find, item_id
   end
 
   def self.resolve_type(type, obj, ctx)

@@ -14,7 +14,7 @@ module Types
     field :allLinks, Types::Link::LinkConnection, null: false, connection: true do
       argument :sort_by, String, required: false, default_value: "chronological"
     end
-    def all_links(type:)
+    def all_links(sort_by:)
       ::Link.all
     end
 

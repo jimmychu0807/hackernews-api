@@ -22,6 +22,7 @@ gem 'uuidtools'
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'rubocop'
+  gem 'pry-byebug'
 end
 
 group :development do
