@@ -11,10 +11,14 @@ module Types
     end
 
     field :allLinks, Types::Link::LinkConnection, null: false, connection: true do
-      argument :sort_by, String, required: false, default_value: "chronological"
+      argument :sort_by, String, required: false, default_value: "by_created_at"
+      argument :desc, Boolean, required: false, default_value: true
     end
-    def all_links(sort_by:)
-      ::Link.all
+    def all_links(sort_by:, desc:)
+      sort_by = sort_by.underscore
+      raise "Unknown links sort type: #{sort_by}" unless \
+        sort_by.in?(::Link::SORT_TYPES)
+      ::Link.includes(:votes, :user).all.send("sort_#{sort_by}", desc)
     end
 
   end

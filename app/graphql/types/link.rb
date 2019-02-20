@@ -10,6 +10,10 @@ module Types
 
       field :user, Types::User::UserNode, null: false
       field :votes, Types::Vote::VoteConnection, null: false
+      field :votesCount, Integer, null: false
+      def votes_count
+        object.votes.size
+      end
 
       field :createdAt,  Types::DateTimeType, null: false
     end

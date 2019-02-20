@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'pry-byebug'
   gem 'annotate'
+  gem 'awesome_print'
 end
 
 group :development do
