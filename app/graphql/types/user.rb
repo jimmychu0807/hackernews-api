@@ -7,12 +7,6 @@ module Types
       global_id_field :id
       field :name, String, null: false
       field :email, String, null: true
-      def email
-        current_user = context[:current_user]
-        return object.email if current_user.id == object.id
-        nil
-      end
-
       field :createdAt, Types::DateTimeType, null: false
 
       field :links, Types::Link::LinkConnection, null: false
