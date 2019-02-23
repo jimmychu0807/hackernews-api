@@ -20,12 +20,15 @@ gem 'search_object'
 gem 'search_object_graphql'
 gem 'factory_bot_rails'
 gem 'uuidtools'
-gem 'awesome_print'
+
+# For pretty rails console
+gem 'pry-awesome_print'
+gem 'pry-byebug'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'rubocop'
-  gem 'pry-byebug'
   gem 'annotate'
 end
 
