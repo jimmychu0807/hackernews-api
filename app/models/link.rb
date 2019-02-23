@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id          :bigint(8)        not null, primary key
+#  description :string           not null
+#  url         :string           not null
+#  votes_count :integer          default(0)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer          not null
+#
+# Indexes
+#
+#  index_links_on_user_id  (user_id)
+#
+
 class Link < ActiveRecord::Base
   # --- relationships ---
   belongs_to :user, validate: true
@@ -8,8 +25,7 @@ class Link < ActiveRecord::Base
   # ---- scopes ---
   scope :sort_by_created_at, ->(desc = true) { order(created_at: (desc ? :desc : :asc)) }
   scope :sort_by_votes_count, ->(desc = true) {
-    select("links.*", "count(votes.link_id) as total").left_joins(:votes).group("links.id")
-      .order("total #{desc ? "DESC" : "ASC"}, links.created_at DESC")
+    order(votes_count: (desc ? :desc : :asc), created_at: :desc)
   }
   scope :like, ->(field, value) { where arel_table[field].matches("%#{value}%") }
 

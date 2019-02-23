@@ -9,10 +9,8 @@ class Mutations::CreateUser < Mutations::BaseMutation
   def resolve(name:, email:, password:)
     basic_ar_cancan_rescue do
       user = User.create!(name: name, email: email, password: password)
-      return {
-        user: user,
-        errors: nil
-      }
+      token = AuthToken.token_for_user(user)
+      return { user: user, token: token, errors: nil }
     end
   end
 end

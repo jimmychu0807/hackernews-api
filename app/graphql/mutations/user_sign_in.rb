@@ -8,11 +8,10 @@ class Mutations::UserSignIn < Mutations::BaseMutation
 
   def resolve(email:, password:)
     user = User.find_by(email: email)&.authenticate(password)
-    if user
-      token = AuthToken.token_for_user(user)
-      return { user: user, token: token, errors: nil }
-    end
+    return { user: nil, token: nil, errors: ["Invalid user login."] } \
+      unless user
 
-    return { user: nil, token: nil, errors: ["Invalid user login."] }
+    token = AuthToken.token_for_user(user)
+    return { user: user, token: token, errors: nil }
   end
 end
