@@ -20,13 +20,13 @@ gem 'search_object'
 gem 'search_object_graphql'
 gem 'factory_bot_rails'
 gem 'uuidtools'
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'rubocop'
   gem 'pry-byebug'
   gem 'annotate'
-  gem 'awesome_print'
 end
 
 group :development do

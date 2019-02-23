@@ -1,2 +1,2 @@
-class Types::BaseConnection < Types::Relay::BaseConnection
+class Types::BaseConnection < GraphQL::Types::Relay::BaseConnection
 end
