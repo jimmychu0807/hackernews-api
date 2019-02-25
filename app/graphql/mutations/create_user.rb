@@ -4,6 +4,7 @@ class Mutations::CreateUser < Mutations::BaseMutation
   argument :password, String, required: true
 
   field :user, Types::User::UserNode, null: true
+  field :token, String, null: true
   field :errors, [String], null: true
 
   def resolve(name:, email:, password:)
