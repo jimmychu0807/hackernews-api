@@ -32,8 +32,8 @@ class Ability
     can :create, [::User]
 
     if user.present?
-      can :create, [::Link, ::Vote]
-      can :manage, [::Link, ::Vote], user_id: user.id
+      can :create, [::Link, ::Vote, ::Comment]
+      can :manage, [::Link, ::Vote, ::Comment], user_id: user.id
     end
   end
 end

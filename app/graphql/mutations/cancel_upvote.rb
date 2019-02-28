@@ -9,7 +9,7 @@ class Mutations::CancelUpvote < Mutations::BaseMutation
       user = context[:current_user]
       vote = link.votes.find_by(user: user)
       check_ability!(:destroy, vote)
-      vote.destroy!
+      link.cancel_upvote!(user)
       return { link: link, errors: nil }
     end
   end

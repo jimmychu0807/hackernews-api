@@ -10,7 +10,7 @@ class Mutations::CreateVote < Mutations::BaseMutation
       check_ability!(:create, Vote)
 
       user = context[:current_user]
-      vote = user.votes.create!(link: link)
+      vote = link.upvote(user)
       return {
         vote: vote, link: link, errors: nil,
       }

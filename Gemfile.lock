@@ -175,7 +175,6 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.4.1)
-    uuidtools (2.1.5)
     validate_url (1.0.2)
       activemodel (>= 3.0.0)
       addressable
@@ -212,7 +211,6 @@ DEPENDENCIES
   search_object_graphql
   spring
   spring-watcher-listen (~> 2.0.0)
-  uuidtools
   validate_url
   web-console (>= 3.3.0)
 

@@ -7,19 +7,19 @@ module Types
       global_id_field :id
       field :url, String, null: false
       field :description, String, null: false
-
       field :submitter, Types::User::UserNode, null: false, method: :user
+
       field :votes, Types::Vote::VoteConnection, null: false
       field :votesCount, Integer, null: false
-      def votes_count
-        object.votes.size
-      end
+
+      field :comments, Types::Comment::CommentConnection, null: false
+      field :commentsCount, Integer, null: false
 
       field :loginUserVoted, Boolean, null: false
       def login_user_voted
         user = context[:current_user]
         return false unless user
-        object.votes.find_by(user: user) != nil
+        object.upvoted?(user)
       end
 
       field :createdAt,  Types::DateTimeType, null: false

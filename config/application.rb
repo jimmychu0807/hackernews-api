@@ -19,7 +19,6 @@ module GraphqlRuby
     # Do not generate test file
     config.generators do |g|
       g.test_framework nil
-      g.orm :active_record, primary_key_type: :uuid
     end
 
     # see https://github.com/cyu/rack-cors

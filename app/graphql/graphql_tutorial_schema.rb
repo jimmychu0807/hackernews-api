@@ -23,6 +23,7 @@ class GraphqlTutorialSchema < GraphQL::Schema
     when ::User; Types::User::UserNode
     when ::Link; Types::Link::LinkNode
     when ::Vote; Types::Vote::VoteNode
+    when ::Comment; Types::Comment::CommentNode
     else; raise "Unknown type: #{type}"
     end
   end

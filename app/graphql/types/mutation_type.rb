@@ -5,5 +5,6 @@ module Types
     field :create_vote, mutation: Mutations::CreateVote
     field :user_sign_in, mutation: Mutations::UserSignIn
     field :cancel_upvote, mutation: Mutations::CancelUpvote
+    field :post_comment, mutation: Mutations::PostComment
   end
 end

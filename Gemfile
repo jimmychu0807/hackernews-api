@@ -19,7 +19,6 @@ gem 'cancancan', "~> 2.0"
 gem 'search_object'
 gem 'search_object_graphql'
 gem 'factory_bot_rails'
-gem 'uuidtools'
 
 # For pretty rails console
 gem 'pry-awesome_print'
