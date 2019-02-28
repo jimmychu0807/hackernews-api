@@ -14,6 +14,13 @@ module GraphqlRuby
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.time_zone = 'Hong Kong'
+
+    # Do not generate test file
+    config.generators do |g|
+      g.test_framework nil
+      g.orm :active_record, primary_key_type: :uuid
+    end
 
     # see https://github.com/cyu/rack-cors
     config.middleware.insert_before 0, Rack::Cors do
