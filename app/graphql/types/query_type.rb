@@ -21,5 +21,18 @@ module Types
       ::Link.includes(:votes, :user).all.send("sort_#{sort_by}", desc)
     end
 
+    field :getCommentsByCommentableId, Types::Comment::CommentConnection,
+      null: false, connection: true do
+      argument :commentable_id, ID, required: true
+      argument :level_type, String, required: false, default_value: "top_level"
+    end
+    def get_comments_by_commentable_id(commentable_id:, level_type:)
+      commentable = GraphqlTutorialSchema.object_from_id(commentable_id, context)
+      case level_type
+      when "top_level"; return commentable.comments
+      else; raise "Unsupported comment level_type: ${level_type}"
+      end
+    end
+
   end
 end

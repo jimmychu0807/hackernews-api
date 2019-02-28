@@ -12,8 +12,12 @@ module Types
       field :content, String, null: false
 
       field :user, Types::User::UserNode, null: false
+
       field :votes, Types::Vote::VoteConnection, null: false
+      # field :votesCount, Integer, null: false
+
       field :comments, Types::Comment::CommentConnection, null: false
+      field :commentsCount, Integer, null: false
 
       field :createdAt, Types::DateTimeType, null: false
     end
